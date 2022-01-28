@@ -36,7 +36,7 @@ board_history = []
 
 
 """
-Places a token on the board and updates the state of the game
+Place a token on the board and updates the state of the game
 
 Parameters:
 placed_token (int): 0 = empty square, 1 = 'X', 2 = 'O'
@@ -55,7 +55,7 @@ def place_token(placed_token, token_x, token_y):
 
 
 """
-Place a token to the game board and check for endgame conditions
+Check for endgame conditions
 Does no error checking -- relies on controller to provide error-free values
 """
 def update_game_state():

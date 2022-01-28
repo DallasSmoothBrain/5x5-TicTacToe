@@ -1,8 +1,8 @@
 """ 
 A simple tkinter GUI for 5x5 Tic Tac Toe
     
-This module acts as both view and controller module for the model defined
-in game_logic.py.
+This module acts as both view and controller for the model defined
+in gamelogic.py.
 """
 
 # -------------------------------- Imports -------------------------------------
@@ -13,7 +13,7 @@ except:
 
 from itertools import product   # To iterate over the board
 
-import game_logic               # Handle game state, winning, etc
+import gamelogic                # Handle game state, winning, etc
 # ------------------------------------------------------------------------------
 
 # Variables
@@ -21,7 +21,7 @@ g_starting_token = 'X'          # Hard-coded starting player
 
 
 """
-Defines the game window and handles board interactions
+Define the game window and handles board interactions
 """
 class GameWindow (tk.Tk):
 
@@ -111,7 +111,7 @@ class GameWindow (tk.Tk):
     def place_token(self, event):
 
         # Ensure that game is not over
-        if game_logic.game_over:
+        if gamelogic.game_over:
             return
 
         # Get reference to button
@@ -121,26 +121,26 @@ class GameWindow (tk.Tk):
         if square['text']: 
             return # Return if text is not empty string
 
-        # retrieve x and y location from name of widget
+        # Retrieve x and y location from name of widget
         x = int(str(square)[9])
         y = int(str(square)[10])
 
         # Update board display
         square.configure(text=self.player_token)
 
-        # Convert placed token to game_logic module's representation
+        # Convert placed token to gamelogic module's representation
         token_code = 1 if self.player_token == 'X' else 2
-        game_logic.place_token(token_code, x, y)    # Update game logic
+        gamelogic.place_token(token_code, x, y)    # Update game logic
 
         # Check and react to game over flag
-        if game_logic.game_over:
+        if gamelogic.game_over:
             # Assume tie initially
             status_text = 'Tie!'
 
-            # Check winner
-            if game_logic.winner == 1:
+            # Get winner
+            if gamelogic.winner == 1:
                 status_text = 'X wins!'
-            elif game_logic.winner == 2:
+            elif gamelogic.winner == 2:
                 status_text = 'O wins!'
 
             # Update top info label text
@@ -163,13 +163,13 @@ class GameWindow (tk.Tk):
     def highlight_row(self):
         # Set color based on winner
         color = 'black'     # No color change if tie
-        if game_logic.winner == 1:
+        if gamelogic.winner == 1:
             color = 'red'   # If X wins
-        elif game_logic.winner == 2:
+        elif gamelogic.winner == 2:
             color = 'blue'  # If O wins
 
         # Iterate through the squares that contain the winning tokens
-        for x, y in game_logic.winning_row:
+        for x, y in gamelogic.winning_row:
             self.board_squares[x][y].configure(fg=color)    # Update text color
 
 
@@ -183,7 +183,7 @@ class GameWindow (tk.Tk):
             self.board_squares[x][y]['fg'] = 'black'
 
         # Reset game logic
-        game_logic.reset()
+        gamelogic.reset()
 
         # Reset turn to hard-coded starting player
         self.player_token = g_starting_token
