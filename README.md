@@ -3,6 +3,10 @@
 It's like regular Tic Tac Toe, except it's played on a 5x5 board and you need
 4 in a row to win the game.
 
+<p align="center">
+    <img src="res/demo.jpg" alt="Demo image" width="300" />
+</p>
+
 I wasted a lot of time playing this on paper with my friends during high school 
 calculus classes
 
