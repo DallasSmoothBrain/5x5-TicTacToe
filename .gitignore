@@ -2,3 +2,7 @@ __pycache__/
 
 # Don't upload local game records
 games.log
+
+# Some pyinstaller stuff
+tictactoe5x5.spec
+build/tictactoe5x5/

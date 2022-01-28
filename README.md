@@ -13,4 +13,4 @@ the network, but someday soon I'll figure it out and update this repo.
 
 For now it's just a 2 player game to play with your friends or enemies, enjoy!
 
-run `python tictactoe5x5.py` to play it
+Launch the executable or run `python src/tictactoe5x5.py` to play it
