@@ -1,0 +1,4 @@
+__pycache__/
+
+# Don't upload local game records
+games.log
